@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+@*@if (Session["employee"] == null)
+{
+    Response.Redirect("~/Login/Index");
+}*@
+@{ 
+    NorthwindileMVC.Models.Employees user = (NorthwindileMVC.Models.Employees)Session["employee"];
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Assets/css/MainStyle.css" rel="stylesheet" />
+    @RenderSection("styles",false)
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="topBar">
+            <div class="title">
+                <h1>NorthWind Ticaret</h1><h4>Admin Panel</h4>
+            </div>
+            <div class="user">
+                <label>@user.FirstName @user.LastName (user.Username)</label>
+                <a href="@Url.Action("LogOut","Login")">Güvenli Çıkış</a>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="menuBar">
+            <a href="@Url.Action("Index","Home")">Ana Sayfa</a>
+            <a href="@Url.Action("Index","Category")">Kategori İşlemleri</a>
+            <a href="@Url.Action("Index","Supplier")">Tedarikçi İşlemleri</a>
+            <a href="@Url.Action("Index","Product")">Ürün İşlemleri</a>
+            <a href="@Url.Action("Index","Employee")">Çalışanlar</a>
+            <a href="@Url.Action("Index","Customer")">Müşteriler</a>
+            <a href="@Url.Action("Index","Order")">Satışlar</a>
+        </div>
+        <div class="contentContainer">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

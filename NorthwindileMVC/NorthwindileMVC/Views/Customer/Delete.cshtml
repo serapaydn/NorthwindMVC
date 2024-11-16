@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+<div class="pageTitle">
+    <h2>Müşteri Sil</h2>
+</div>
+
+<div class="formContainer">
+    <table class="formTable" cellpadding="0" cellspacing="0">
+        <tr>
+            <th style="color:white">Müşteri ID</th>
+            <td>@Model.CustomerID</td>
+        </tr>
+        <tr>
+            <th style="color:white">Şirket Adı</th>
+            <td>@Model.CompanyName</td>
+        </tr>
+        <tr>
+            <th style="color:white">İletişim Adı</th>
+            <td>@Model.ContactName</td>
+        </tr>
+        <tr>
+            <th style="color:white">İletişim Ünvanı</th>
+            <td>@Model.ContactTitle</td>
+        </tr>
+        <tr>
+            <th style="color:white">Adres</th>
+            <td>@Model.Address</td>
+        </tr>
+        <tr>
+            <th style="color:white">Şehir</th>
+            <td>@Model.City</td>
+        </tr>
+        <tr>
+            <th style="color:white">Bölge</th>
+            <td>@Model.Region</td>
+        </tr>
+        <tr>
+            <th style="color:white">Posta Kodu</th>
+            <td>@Model.PostalCode</td>
+        </tr>
+        <tr>
+            <th style="color:white">Ülke</th>
+            <td>@Model.Country</td>
+        </tr>
+        <tr>
+            <th style="color:white">Telefon</th>
+            <td>@Model.Phone</td>
+        </tr>
+        <tr>
+            <th style="color:white">Fax</th>
+            <td>@Model.Fax</td>
+        </tr>
+    </table>
+
+    <div class="deleteBase">
+        <div class="deleteAccess">
+            <label><strong>Bu müşteriyi silmek istediğinizden emin misiniz?</strong></label>
+        </div>
+
+        <div class="confirmation-buttons">
+            @using (Html.BeginForm("Delete", "Customer", new { id = Model.CustomerID }, FormMethod.Post))
+            {
+                <input type="submit" value="Evet, Sil" class="submitButton" />
+                <a href="@Url.Action("Index", "Customer")">İptal</a>
+            }
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}

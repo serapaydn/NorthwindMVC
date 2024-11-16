@@ -1,0 +1,81 @@
+﻿
+@{
+    ViewBag.Title = "Siparişi Sil";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+<div class="pageTitle">
+    <h2>Sipariş Sil</h2>
+</div>
+
+<div class="formContainer">
+    <table class="formTable" cellpadding="0" cellspacing="0">
+        <tr>
+            <th style="color:white">Sipariş ID</th>
+            <td>@Model.OrderID</td>
+        </tr>
+        <tr>
+            <th style="color:white">Müşteri ID</th>
+            <td>@Model.CustomerID</td>
+        </tr>
+        <tr>
+            <th style="color:white">Çalışan ID</th>
+            <td>@Model.EmployeeID</td>
+        </tr>
+        <tr>
+            <th style="color:white">Sipariş Tarihi</th>
+            <td>@Model.OrderDate</td>
+        </tr>
+        <tr>
+            <th style="color:white">Gerekli Tarih</th>
+            <td>@Model.RequiredDate</td>
+        </tr>
+        <tr>
+            <th style="color:white">Gönderim Tarihi</th>
+            <td>@Model.ShippedDate</td>
+        </tr>
+        <tr>
+            <th style="color:white">Taşıma Ücreti</th>
+            <td>@Model.Freight</td>
+        </tr>
+        <tr>
+            <th style="color:white">Gönderim Adı</th>
+            <td>@Model.ShipName</td>
+        </tr>
+        <tr>
+            <th style="color:white">Gönderim Adresi</th>
+            <td>@Model.ShipAddress</td>
+        </tr>
+        <tr>
+            <th style="color:white">Gönderim Şehri</th>
+            <td>@Model.ShipCity</td>
+        </tr>
+        <tr>
+            <th style="color:white">Gönderim Posta Kodu</th>
+            <td>@Model.ShipPostalCode</td>
+        </tr>
+        <tr>
+            <th style="color:white">Gönderim Ülkesi</th>
+            <td>@Model.ShipCountry</td>
+        </tr>
+    </table>
+
+    <div class="deleteBase">
+        <div class="deleteAccess">
+            <label><strong>Bu siparişi silmek istediğinizden emin misiniz?</strong></label>
+        </div>
+
+        <div class="confirmation-buttons">
+            @using (Html.BeginForm("Delete", "Order", new { id = Model.OrderID }, FormMethod.Post))
+            {
+                <input type="submit" value="Evet, Sil" class="submitButton" />
+                <a href="@Url.Action("Index", "Order")">İptal</a>
+            }
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}
+

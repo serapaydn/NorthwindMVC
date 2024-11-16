@@ -1,0 +1,64 @@
+﻿@model IEnumerable<NorthwindileMVC.Models.Orders>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+
+<div class="pageTitle">
+    <h2 style="float:left">Siparişler</h2>
+    <a href="@Url.Action("Create", "Order")" class="addButton"> + Sipariş Ekle</a>
+    <div style="clear:both"></div>
+</div>
+
+<div class="formContainer">
+    <table class="formTable" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>Sipariş ID</th>
+            <th>Müşteri Adı</th>
+            <th>Çalışan ID</th>
+            <th>Sipariş Tarihi</th>
+            <th>Gerekli Tarih</th>
+            <th>Gönderildi Tarihi</th>
+            <th>Kargo Ücreti</th>
+            <th>Gönderi Adı</th>
+            <th>Gönderi Adresi</th>
+            <th>Gönderi Şehri</th>
+            <th>Gönderi Posta Kodu</th>
+            <th>Gönderi Ülkesi</th>
+            <th>Seçenekler</th>
+        </tr>
+        @foreach (NorthwindileMVC.Models.Orders item in Model)
+        {
+            <tr>
+                <td>@item.OrderID</td>
+                <td>@item.CustomerID</td>
+                <td>@item.EmployeeID</td>
+                <td>@item.OrderDate</td>
+                <td>@item.RequiredDate</td>
+                <td>@item.ShippedDate</td>
+                <td>@item.Freight</td>
+                <td>@item.ShipName</td>
+                <td>@item.ShipAddress</td>
+                <td>@item.ShipCity</td>
+                <td>@item.ShipPostalCode</td>
+                <td>@item.ShipCountry</td>
+
+                <td>
+                    <a href="@Url.Action("Edit", "Order", new { id = item.OrderID })" class="tablebutton edit">Düzenle</a>
+                    <a href="@Url.Action("Delete", "Order", new { id = item.OrderID })" class="tablebutton delete">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+
+
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}
+

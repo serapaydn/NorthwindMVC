@@ -1,0 +1,76 @@
+﻿@model NorthwindileMVC.Models.Products
+@{
+    ViewBag.Title = "Ürün Düzenle";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+<div class="pageTitle">
+    <h2>Ürün Düzenle</h2>
+</div>
+<div class="formContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(p => p.ProductID);
+        if (ViewBag.status != null)
+        {
+            if (ViewBag.status == "1")
+            {
+                <div class="success">
+                    @ViewBag.message
+                </div>
+            }
+            if (ViewBag.status == "0")
+            {
+                <div class="error">
+                    @ViewBag.message
+                </div>
+            }
+        }
+        <div class="row">
+            <label class="controlLabel">Ürün Adı</label><br />
+            @Html.EditorFor(p => p.ProductName, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+        <div class="row">
+            <label class="controlLabel">Kategori ID</label><br />
+            @Html.EditorFor(p => p.CategoryID, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+        <div class="row">
+            <label class="controlLabel">Tedarikçi ID</label><br />
+            @Html.EditorFor(p => p.SupplierID, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+        <div class="row">
+            <label class="controlLabel">Miktar</label><br />
+            @Html.EditorFor(p => p.QuantityPerUnit, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+        <div class="row">
+            <label class="controlLabel">Fiyat</label><br />
+            @Html.EditorFor(p => p.UnitPrice, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+        <div class="row">
+            <label class="controlLabel">Stok Miktarı</label><br />
+            @Html.EditorFor(p => p.UnitsInStock, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+        <div class="row">
+            <label class="controlLabel">Sipariş Miktarı</label><br />
+            @Html.EditorFor(p => p.UnitsOnOrder, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+        <div class="row">
+            <label class="controlLabel">Yeniden Sipariş Seviyesi</label><br />
+            @Html.EditorFor(p => p.ReorderLevel, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Ürün Düzenle" class="submitButton" />
+        </div>
+    }
+</div>
+
+
+
+
+
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}
+

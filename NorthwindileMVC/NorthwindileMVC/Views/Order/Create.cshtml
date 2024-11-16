@@ -1,0 +1,97 @@
+﻿@model NorthwindileMVC.Models.Orders
+@{
+    ViewBag.Title = "Sipariş Ekle";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+<div class="pageTitle">
+    <h2>Sipariş Ekle</h2>
+</div>
+
+<div class="formContainer">
+    @using (Html.BeginForm())
+    {
+        if (ViewBag.status != null)
+        {
+            if (ViewBag.status == "1")
+            {
+                <div class="success">
+                    @ViewBag.message
+                </div>
+            }
+            else if (ViewBag.status == "0")
+            {
+                <div class="error">
+                    @ViewBag.message
+                </div>
+            }
+        }
+
+        <div class="row">
+            <label class="controlLabel">Çalışan</label><br />
+            @Html.DropDownListFor(o => o.EmployeeID, (SelectList)ViewBag.EmployeeID, "- Çalışan Seçin -", new { @class = "dropdown" })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Müşteri</label><br />
+            @Html.DropDownListFor(o => o.CustomerID, (SelectList)ViewBag.CustomerID, "- Müşteri Seçin -", new { @class = "dropdown" })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Sipariş Tarihi</label><br />
+            @Html.EditorFor(o => o.OrderDate, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Gerekli Tarih</label><br />
+            @Html.EditorFor(o => o.RequiredDate, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Gönderim Tarihi</label><br />
+            @Html.EditorFor(o => o.ShippedDate, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Taşıma Ücreti</label><br />
+            @Html.EditorFor(o => o.Freight, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Gönderim Adı</label><br />
+            @Html.EditorFor(o => o.ShipName, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Gönderim Adresi</label><br />
+            @Html.EditorFor(o => o.ShipAddress, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Gönderim Şehri</label><br />
+            @Html.EditorFor(o => o.ShipCity, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Gönderim Posta Kodu</label><br />
+            @Html.EditorFor(o => o.ShipPostalCode, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Gönderim Ülkesi</label><br />
+            @Html.EditorFor(o => o.ShipCountry, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Sipariş Ekle" class="submitButton" />
+        </div>
+    }
+</div>
+
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}
+
+
+

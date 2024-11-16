@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+<div class="pageTitle">
+    <h2>Ürün Sil</h2>
+</div>
+
+<div class="formContainer">
+    <table class="formTable" cellpadding="0" cellspacing="0">
+        <tr>
+            <th style="color:white">Ürün Adı</th>
+            <td>@Model.ProductName</td>
+        </tr>
+        <tr>
+            <th style="color:white">Kategori ID</th>
+            <td>@Model.CategoryID</td>
+        </tr>
+        <tr>
+            <th style="color:white">Tedarikçi ID</th>
+            <td>@Model.SupplierID</td>
+        </tr>
+        <tr>
+            <th style="color:white">Miktar</th>
+            <td>@Model.QuantityPerUnit</td>
+        </tr>
+        <tr>
+            <th style="color:white">Fiyat</th>
+            <td>@Model.UnitPrice</td>
+        </tr>
+        <tr>
+            <th style="color:white">Stok Miktarı</th>
+            <td>@Model.UnitsInStock</td>
+        </tr>
+        <tr>
+            <th style="color:white">Sipariş Miktarı</th>
+            <td>@Model.UnitsOnOrder</td>
+        </tr>
+        <tr>
+            <th style="color:white">Yeniden Sipariş Seviyesi</th>
+            <td>@Model.ReorderLevel</td>
+        </tr>
+    </table>
+
+    <div class="deleteBase">
+        <div class="deleteAccess">
+            <label><strong>Bu ürünü silmek istediğinizden emin misiniz?</strong></label>
+        </div>
+
+        <div class="confirmation-buttons">
+            @using (Html.BeginForm("Delete", "Product", new { id = Model.ProductID }, FormMethod.Post))
+            {
+                <input type="submit" value="Evet, Sil" class="submitButton" />
+                <a href="@Url.Action("Index", "Product")">İptal</a>
+            }
+        </div>
+    </div>
+</div>
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}

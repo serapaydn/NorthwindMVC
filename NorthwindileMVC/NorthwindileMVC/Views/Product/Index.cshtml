@@ -1,0 +1,53 @@
+﻿@model IEnumerable<NorthwindileMVC.Models.Products>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+<div class="pageTitle">
+    <h2 style="float:left">Ürünler</h2>
+    <a href="@Url.Action("Create", "Product")" class="addButton">
+        + Ürün Ekle
+    </a>
+    <div style="clear:both"> </div>
+</div>
+
+<div class="formContainer">
+    <table class="formTable" cellpadding="0" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>Ürün Adı</th>
+            <th>Kategori</th>
+            <th>Tedarikçi</th>
+            <th>Miktar</th>
+            <th>Fiyat</th>
+            <th>Stok Miktarı</th>
+            <th>Yeniden Sipariş Seviyesi</th>
+            <th>Seçenekler</th>
+        </tr>
+        @foreach (NorthwindileMVC.Models.Products item in Model)
+        {
+            <tr>
+                <td>@item.ProductID</td>
+                <td>@item.ProductName</td>
+                <td>@item.CategoryID</td>
+                <td>@item.SupplierID</td>
+                <td>@item.QuantityPerUnit</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitsInStock</td>
+                <td>@item.UnitsOnOrder</td>
+
+                <td>
+                    <a href="@Url.Action("Edit", "Product", new { id = item.ProductID})" class="tablebutton edit">Düzenle</a>
+                    <a href="@Url.Action("Delete", "Product", new {id=item.ProductID })" class="tablebutton delete">Sil</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</div>
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}
+

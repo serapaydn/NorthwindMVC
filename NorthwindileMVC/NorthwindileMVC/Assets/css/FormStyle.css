@@ -1,0 +1,137 @@
+﻿body {
+}
+
+.pageTitle {
+    color: dimgray;
+    font-weight: 900;
+    border-bottom: 1px solid silver;
+    padding: 10px;
+}
+
+.addButton {
+    padding: 3px 20px;
+    background-color: #770598;
+    float: right;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.formContainer {
+}
+
+.row {
+    margin: 15px 0;
+}
+
+.controlLabel {
+    color: dimgray;
+}
+
+.textbox {
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border: 1px solid dimgray;
+}
+
+.submitButton {
+    background-color: #c600ff;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 5px;
+    border: 1px solid #770598;
+    font-weight: 900;
+}
+
+    .submitButton:hover {
+        background-color: #770598;
+        cursor: pointer;
+    }
+
+.success {
+    padding: 15px;
+    background-color: #92ffff;
+    color: dimgray;
+    border-radius: 10px;
+}
+
+.error {
+    padding: 15px;
+    background-color: #770598;
+    color: white;
+    border-radius: 10px;
+}
+
+.formTable {
+    width: 100%;
+}
+
+    .formTable tr {
+    }
+
+        .formTable tr th {
+            border-bottom: 1px solid silver;
+            padding: 10px;
+            text-align: left;
+            background-color: #eaabfc;
+        }
+
+        .formTable tr td {
+            border-bottom: 1px solid silver;
+            padding: 5px;
+        }
+
+.tablebutton {
+    padding: 3px;
+    border-radius: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.edit {
+    background-color: #63d3e8;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.delete {
+    background-color: #770598;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.deleteAccess {
+    padding: 15px;
+    background-color: #92ffff;
+    color: dimgray;
+    margin-top: 10px;
+}
+
+.deleteNotAccess {
+    padding: 15px;
+    background-color: #770598;
+    color: white;
+    margin-top: 10px;
+}
+
+.deleteBase {
+    margin-top: 10px;
+}
+
+    .deleteBase a {
+        float: right;
+        margin-top: 15px;
+        margin-right: 20px;
+    }
+
+    .deleteBase .submitButton {
+        float: right;
+    }
+
+.confirmation-buttons {
+    margin-top: 20px;
+}

@@ -1,0 +1,93 @@
+﻿@model NorthwindileMVC.Models.Employees
+@{
+    ViewBag.Title = "Çalışan Düzenle";
+    Layout = "~/Views/Sharred/_LayoutPage1.cshtml";
+}
+
+
+<div class="pageTitle">
+    <h2>Çalışan Düzenle</h2>
+</div>
+<div class="formContainer">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(e => e.EmployeeID);
+        if (ViewBag.status != null)
+        {
+            if (ViewBag.status == "1")
+            {
+                <div class="success">
+                    @ViewBag.message
+                </div>
+            }
+            if (ViewBag.status == "0")
+            {
+                <div class="error">
+                    @ViewBag.message
+                </div>
+            }
+        }
+        <div class="row">
+            <label class="controlLabel">Ad</label><br />
+            @Html.EditorFor(c => c.FirstName, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Soyad</label><br />
+            @Html.EditorFor(c => c.LastName, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Unvan</label><br />
+            @Html.EditorFor(c => c.Title, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Doğum Tarihi</label><br />
+            @Html.EditorFor(c => c.BirthDate, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Adres</label><br />
+            @Html.EditorFor(c => c.Address, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Şehir</label><br />
+            @Html.EditorFor(c => c.City, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Ülke</label><br />
+            @Html.EditorFor(c => c.Country, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Telefon</label><br />
+            @Html.EditorFor(c => c.HomePhone, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Kullanıcı Adı</label><br />
+            @Html.EditorFor(c => c.Username, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <label class="controlLabel">Şifre</label><br />
+            @Html.EditorFor(c => c.Password, new { htmlAttributes = new { @class = "textbox" } })
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Çalışan Düzenle" class="submitButton" />
+        </div>
+
+    }
+
+</div>
+
+
+
+@section styles{
+    <link href="~/Assets/css/FormStyle.css" rel="stylesheet" />
+}
+

@@ -1,0 +1,49 @@
+﻿@model NorthwindileMVC.Models.ViewModels.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Assets/css/LoginPage.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="backgroundTop">
+        </div>
+        <div class="loginPanel">
+            <div class="lockIcon">
+            </div>
+            <h2 class="panelTitle">Hesabınıza Giriş Yapın</h2>
+            @using (Html.BeginForm())
+            {
+                if (ViewBag.error != null)
+                {
+                    <div class="errorPanel">
+                        <label>@ViewBag.error </label>
+                    </div>
+                }
+                <div class="row">
+                    <label>Kullanıcı Adı</label>
+                    @Html.EditorFor(x => x.UserName, new { htmlAttributes = new { @class = "textbox" } })
+                    @Html.ValidationMessageFor(x => x.UserName, "", new { @class = "errorMessage" })
+                </div>
+                <div class="row">
+                    <label>Şifre</label>
+                    @Html.EditorFor(x => x.Password, new { htmlAttributes = new { @class = "textbox" } })
+                    @Html.ValidationMessageFor(x => x.Password, "", new { @class = "errorMessage" })
+                </div>
+                <div class="row" style="text-align:center">
+                    <input type="submit" class="loginbutton" value="Giriş Yap" />
+
+                </div>
+            }
+
+        </div>
+    </div>
+</body>
+</html>
